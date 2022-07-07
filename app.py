@@ -13,10 +13,15 @@ from queries import *
 # load_dotenv()
 st.set_page_config(page_title="Unique Solana Programs", layout="wide")
 
-
-df = load_data()
-labels = load_queries(get_labels(df))
-
+try:
+    df = load_data()
+except:
+    df = load_data()
+try:
+    labels = load_queries(get_labels(df))
+except:
+    labels = load_queries(get_labels(df))
+    
 landing_page(df, labels)
 
 flipside_logo(text="🍄 ShroomDK 🍄")
